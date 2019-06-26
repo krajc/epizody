@@ -71,7 +71,6 @@ else:
     pos = mxmax * 1.1
     ylim = (0, pos * 1.2)
 
-met['ypos'] = pos
 
 # Funkcia premena ws, wd na u, v:
 def components(ws, wd):
@@ -86,6 +85,7 @@ def components(ws, wd):
 # Vytvorim df s met. udajmi
 met = pd.read_csv(file2,sep='\t')
 met.date= pd.to_datetime(met.date)
+met['ypos'] = pos
 met.index = met.date
 met = met.rename(columns={'ws_avg':'ws','wd_avg':'wd'})
 met = met.drop(columns=['ta_2m', 'pr_sum', 'ii', 'date'])
